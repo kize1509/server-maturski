@@ -73,16 +73,33 @@ function saveNewUser(req, res) {
       }
     );
   } else {
+    console.log(username + password + razredOdeljenje);
     res.send(invalidCredentials);
   }
 }
 
-function getAllUsers(req, res) {
+function getAllUsersChat(req, res) {
   const errorJson = { message: "error while reading the database" };
   let username = req.params.username;
 
   db.query(
-    `SELECT * FROM users WHERE username != '${username}'`,
+    `SELECT * FROM maturski.users WHERE username != '${username}' AND razred IN ('prof', 'adm')`,
+    function (err, result) {
+      if (err) {
+        let errorMessage = JSON.stringify(errorJson);
+        res.send(errorMessage);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+}
+function getAllUsersDel(req, res) {
+  const errorJson = { message: "error while reading the database" };
+  let username = req.params.username;
+
+  db.query(
+    `SELECT * FROM maturski.users WHERE username != '${username}'`,
     function (err, result) {
       if (err) {
         let errorMessage = JSON.stringify(errorJson);
@@ -121,6 +138,7 @@ function deleteUser(req, res) {
 module.exports = {
   getUserByUsernameAndPassword,
   saveNewUser,
-  getAllUsers,
+  getAllUsersChat,
+  getAllUsersDel,
   deleteUser,
 };

@@ -6,7 +6,20 @@ function getMessages(req, res) {
   };
   console.log(req.params.room);
   db.query(
-    `SELECT messages.message, users.username, chatRoom, messageDateTime FROM messages JOIN users ON users.id = messages.sentFrom WHERE messages.chatRoom = '${req.params.room} ORDER BY messageDate ASC;'`,
+    `SELECT 
+    messages.message, 
+    users.username, 
+    chatRoom, 
+    CONVERT_TZ(messageDateTime, '+00:00', '+02:00') AS messageDateTime 
+  FROM 
+    messages 
+  JOIN 
+    users ON users.id = messages.sentFrom 
+  WHERE 
+    messages.chatRoom = '${req.params.room}' 
+  ORDER BY 
+    messageDateTime ASC;
+  `,
     function (err, result) {
       if (err) {
         console.log(err);
