@@ -4,7 +4,6 @@ function getMessages(req, res) {
   const errorMessage = {
     message: "UNABLE TO GET MESSAGES!",
   };
-  console.log(req.params.room);
   db.query(
     `SELECT 
     messages.message, 
@@ -25,8 +24,6 @@ function getMessages(req, res) {
         console.log(err);
         res.send(errorMessage);
       } else {
-        console.log(result);
-
         res.send(result);
       }
     }
@@ -47,7 +44,6 @@ function createANewChat(req, res) {
       if (result) {
         const id_member_1 = result[0].id;
         const id_member_2 = result[1].id;
-        console.log(id_member_1, id_member_2);
         db.query(
           `SELECT * FROM maturski.chat_rooms where (chat_member1 = '${id_member_1}' and chat_member2 = '${id_member_2}') or (chat_member1 = '${id_member_2}' and chat_member2 = '${id_member_1}')`,
           function (err, result) {
@@ -114,7 +110,6 @@ function getAllRooms(req, res) {
               console.log(err);
               res.send(errResponse);
             } else {
-              console.log(result1);
               res.send(result1);
             }
           }
