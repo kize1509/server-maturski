@@ -74,8 +74,8 @@ Set up the MySQL database:
 
     DB_HOST=localhost
     DB_USER=root
-    DB_PASSWORD=yourpassword
-    DB_NAME=school_timetable
+    DB_PASSWORD=timetable-123
+    DB_NAME=timetable_db
 
 Run the backend server:
 
@@ -84,18 +84,6 @@ node app.js
 Optionally, start ngrok for secure tunnels:
 
     ./ngrok.exe http 3000
-
-API Endpoints
-Base URL
-
-http://localhost:3000
-Example Endpoints
-
-    GET /timetable: Retrieve all timetable entries.
-    POST /timetable: Add a new timetable entry.
-    PUT /timetable/:id: Update a specific timetable entry.
-    DELETE /timetable/:id: Delete a specific timetable entry.
-    Socket Communication: Handles events such as chatMessage and scheduleUpdate.
 
 Contributing
 
