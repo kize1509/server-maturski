@@ -35,17 +35,17 @@ This is the backend service for the **School Timetable Management App**, built u
 ## Project Structure
 
 .
-├── controllers/       # Handles HTTP requests and delegates tasks to services 
-├── node_modules/      # Node.js dependencies 
-├── repository/        # Manages direct database interactions (queries and updates) 
-├── schedules/         # Contains logic for handling and updating timetables 
-├── service/           # Implements business logic and workflows 
-├── README.md          # Project documentation 
-├── app.js             # Main application entry point 
-├── data.router.js     # Defines API routes for various entities 
-├── ngrok.exe          # Ngrok executable for secure tunnels (optional) 
-├── package-lock.json  # Dependency lock file for consistent builds 
-└── package.json       # Node.js project metadata and dependency management
+- ├── controllers/       # Handles HTTP requests and delegates tasks to services 
+- ├── node_modules/      # Node.js dependencies 
+- ├── repository/        # Manages direct database interactions (queries and updates) 
+- ├── schedules/         # Contains logic for handling and updating timetables 
+- ├── service/           # Implements business logic and workflows 
+- ├── README.md          # Project documentation 
+- ├── app.js             # Main application entry point 
+- ├── data.router.js     # Defines API routes for various entities 
+- ├── ngrok.exe          # Ngrok executable for secure tunnels (optional) 
+- ├── package-lock.json  # Dependency lock file for consistent builds 
+- └── package.json       # Node.js project metadata and dependency management
 
 
 ---
